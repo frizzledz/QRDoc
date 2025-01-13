@@ -35,7 +35,7 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    protected $helpers = ['url', 'form', 'auth'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -52,7 +52,13 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        $this->session = \Config\Services::session();
+    }
 
-        // E.g.: $this->session = service('session');
+    protected function checkAuth()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
+        }
     }
 }

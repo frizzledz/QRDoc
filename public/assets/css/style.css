@@ -1,0 +1,290 @@
+/* Global Styles */
+body {
+    background: #f8f9fa;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-1px);
+}
+
+/* Badge Styles */
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Alert Styles */
+.alert {
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+/* Image Styles */
+.img-thumbnail {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Utilities */
+.shadow-sm {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.rounded-xl {
+    border-radius: 15px !important;
+}
+
+/* Status Colors */
+.status-pending {
+    color: #f59e0b;
+    background-color: #fef3c7;
+}
+
+.status-verified {
+    color: #10b981;
+    background-color: #d1fae5;
+}
+
+.status-rejected {
+    color: #ef4444;
+    background-color: #fee2e2;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .table-responsive {
+        border-radius: 15px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Update icon containers */
+.rounded {
+    border-radius: 12px !important;
+}
+
+/* Icon sizes */
+.fa-lg {
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.fa-2x {
+    font-size: 2em;
+    line-height: 1;
+}
+
+/* Icon containers in cards */
+.card .icon-container {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+/* Status badges */
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Button icons */
+.btn i {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add these new styles */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.table td {
+    font-size: 0.875rem;
+}
+
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.025em;
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.btn-light:hover {
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+}
+
+.text-success {
+    color: #10b981 !important;
+}
+
+.text-warning {
+    color: #f59e0b !important;
+}
+
+.text-danger {
+    color: #ef4444 !important;
+}
+
+.bg-success {
+    background-color: #10b981 !important;
+}
+
+.bg-warning {
+    background-color: #f59e0b !important;
+}
+
+.bg-danger {
+    background-color: #ef4444 !important;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table td, 
+    .table th {
+        padding: 0.75rem;
+    }
+} 

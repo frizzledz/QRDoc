@@ -1,93 +1,153 @@
-<?= $this->extend('_layout') ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<?= $this->section('content') ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - QR Doc System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .register-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+        
+        .card-header {
+            background: transparent;
+            border-bottom: none;
+            padding: 25px 25px 0;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .form-floating {
+            margin-bottom: 1rem;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            height: 50px;
+        }
+        
+        .btn-primary {
+            height: 50px;
+            border-radius: 10px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .alert {
+            border-radius: 10px;
+        }
+        
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 
-<main class="py-5 my-auto">
-    <div class="container">
+<body>
+    <div class="register-container">
+        <div class="text-center mb-4">
+            <div class="brand-logo mx-auto">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <h4 class="text-white mb-3">QR Doc System</h4>
+        </div>
+        
+        <div class="card">
+            <div class="card-header text-center">
+                <h5 class="mb-0">Create Account</h5>
+                <p class="text-muted small">Please fill in your details</p>
+            </div>
+            
+            <div class="card-body">
+                <?php if (session()->getFlashdata('error')): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <?= session()->getFlashdata('error') ?>
+                    </div>
+                <?php endif; ?>
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-4">
-
-                <form id="form-register" method="POST">
-                    <h1 class="h3 mb-3 fw-normal">Register</h1>
-
-                    <div id="form-message"></div>
+                <form action="<?= base_url('register') ?>" method="post">
+                    <?= csrf_field() ?>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                        <label for="username"><i class="fas fa-user me-2"></i>Username</label>
+                    </div>
 
                     <div class="form-floating mb-3">
-                        <input name="email" type="email" class="form-control" id="input-email" placeholder="[email protected]">
-                        <label for="input-email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <label for="email"><i class="fas fa-envelope me-2"></i>Email</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input name="username" type="text" class="form-control" id="input-username" placeholder="foo...">
-                        <label for="input-username">Username</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input name="password" type="password" class="form-control" id="input-password" placeholder="Password">
-                        <label for="input-password">Password</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input name="password_confirm" type="password" class="form-control" id="input-password-confirm" placeholder="Password">
-                        <label for="input-password-confirm">Confirm Password</label>
-                    </div>
-                    <button class="btn btn-lg btn-outline-dark submit-button" type="submit">Sign Up</button>
 
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        <label for="password"><i class="fas fa-lock me-2"></i>Password</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                        <label for="confirm_password"><i class="fas fa-lock me-2"></i>Confirm Password</label>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus me-2"></i>Register
+                        </button>
+                    </div>
                 </form>
 
+                <div class="text-center mt-4">
+                    <p class="mb-0 text-muted">
+                        Already have an account? 
+                        <a href="<?= base_url('login') ?>" class="text-primary text-decoration-none">Login</a>
+                    </p>
+                </div>
             </div>
         </div>
-
+        
+        <div class="text-center mt-4">
+            <p class="text-white-50 small mb-0">
+                &copy; <?= date('Y') ?> QR Doc System. All rights reserved.
+            </p>
+        </div>
     </div>
-</main>
 
-<?= $this->endSection() ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
-<?= $this->section('js') ?>
-
-<script>
-    $("#form-register").on("submit", function(e) {
-        e.preventDefault();
-
-        let form = $(this);
-
-        // animation
-        $("input", form).prop("readonly", true);
-        $(".submit-button").prop("disabled", true);
-        $(".submit-button", form).html($(".submit-button", form).html() + xsetting.spinner);
-
-        let buttonspinner = $(".button-spinner");
-
-        $.post(base_url + `/register`, form.serialize(), {}, 'json')
-            .done(function(data) {
-
-                if (data.status) {
-
-                    $("#form-message").html(`<div class="alert alert-info text-break">${data.response}</div>`);
-
-                    setTimeout(() => {
-                        window.location.href = data.redirect
-                    }, 1000);
-
-                } else {
-
-                    // animation
-                    $("input", form).prop("readonly", false);
-                    $(".submit-button").prop("disabled", false);
-                    buttonspinner.remove();
-
-                    $("#form-message").html(`<div class="alert alert-danger text-break">${data.response}</div>`);
-                }
-
-            })
-            .fail(function(xhr, statusText, errorThrown) {
-
-                alert(xhr.responseText);
-
-                // animation
-                $("input", form).prop("readonly", false);
-                $(".submit-button").prop("disabled", false);
-                buttonspinner.remove();
-            })
-    })
-</script>
-
-<?= $this->endSection() ?>
+</html>
